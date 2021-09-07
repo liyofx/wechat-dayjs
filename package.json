@@ -1,9 +1,10 @@
 {
-  "name": "dayjs",
+  "name": "wechat-dayjs",
   "version": "0.0.0-development",
   "description": "2KB immutable date time library alternative to Moment.js with the same modern API ",
-  "main": "dayjs.min.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "miniprogram": "dist/",
   "scripts": {
     "test": "TZ=Pacific/Auckland npm run test-tz && TZ=Europe/London npm run test-tz && TZ=America/Whitehorse npm run test-tz && npm run test-tz && jest",
     "test-tz": "date && jest test/timezone.test --coverage=false",
@@ -13,7 +14,7 @@
     "build": "cross-env BABEL_ENV=build node build && npm run size",
     "sauce": "npx karma start karma.sauce.conf.js",
     "test:sauce": "npm run sauce -- 0 && npm run sauce -- 1 && npm run sauce -- 2  && npm run sauce -- 3",
-    "size": "size-limit && gzip-size dayjs.min.js"
+    "size": "size-limit && gzip-size dist/index.js"
   },
   "pre-commit": [
     "lint"
@@ -21,7 +22,7 @@
   "size-limit": [
     {
       "limit": "2.99 KB",
-      "path": "dayjs.min.js"
+      "path": "dist/index.js"
     }
   ],
   "jest": {

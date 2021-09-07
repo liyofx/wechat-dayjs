@@ -18,6 +18,7 @@ const localePath = path.join(__dirname, '../src/locale')
 
 async function build(option) {
   const bundle = await rollup.rollup(option.input)
+  option.output.file = path.join('./dist', option.output.file)
   await bundle.write(option.output)
 }
 
@@ -30,7 +31,7 @@ async function listLocaleJson(localeArr) {
       name: localeData.match(localeNameRegex)[1]
     })
   }))
-  promisifyWriteFile(path.join(__dirname, '../locale.json'), JSON.stringify(localeListArr), 'utf8')
+  promisifyWriteFile(path.join('./dist', 'locale.json'), JSON.stringify(localeListArr), 'utf8')
 }
 
 (async () => {
@@ -59,10 +60,10 @@ async function listLocaleJson(localeArr) {
 
     build(configFactory({
       input: './src/index.js',
-      fileName: './dayjs.min.js'
+      fileName: './index.js'
     }))
 
-    await promisify(ncp)('./types/', './')
+    await promisify(ncp)('./types/', path.join('dist', './'))
 
     // list locales
     await listLocaleJson(locales)
