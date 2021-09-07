@@ -1,6 +1,6 @@
 {
   "name": "wechat-dayjs",
-  "version": "0.0.0-development",
+  "version": "1.10.6-pre",
   "description": "2KB immutable date time library alternative to Moment.js with the same modern API ",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -64,7 +64,7 @@
   "homepage": "https://day.js.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamkun/dayjs.git"
+    "url": "https://github.com/liyofx/wechat-dayjs.git"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.44",
